@@ -10,7 +10,8 @@ class DisplayState extends React.Component{
         uname:'',
         pwd:'',
         mobile:'',
-        show:false
+        show:false,
+        toggle:false
     }
     getInput=(e)=>{
         //console.log(e.target);
@@ -20,19 +21,24 @@ class DisplayState extends React.Component{
     //console.log(this.state.name+" "+this.state.uname)
 }
     submit=()=>{
+        let {show}= this.state;
         //console.log(this.state.name+" "+this.state.uname) 
         this.setState({
-            show:true
+            show:!show,
         })                                                            
     }
 
+    
     render(){
-        return ( <div>
-                <Display getInput={this.getInput} submit={this.submit} />
-        { (this.state.show) && 
-            <DisplayForm data={this.state}/>
-        }
-        </div>);
+        let element;
+        element=<div>
+            <Display getInput={this.getInput} submit={this.submit} handleToggle={this.handleToggle}/>
+            {
+                (this.state.show) && 
+                <DisplayForm data={this.state}/>
+            }
+        </div>
+        return ( element );
 
     }
 }

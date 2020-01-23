@@ -14,7 +14,7 @@ function Display(props) {
         <div class="form-group">
             <span>Name</span>
             <input type="text" className="form-control" name="name" onChange={props.getInput}>
-            </input>
+            </input><br/>
             <span>UserName</span>
             <input type="text" className="form-control" name="uname" onChange={props.getInput}>
             </input><br />
@@ -27,6 +27,7 @@ function Display(props) {
         </div>
         </form>
         <button onClick={props.submit}>Submit</button>
+
     </div>
   );
 
